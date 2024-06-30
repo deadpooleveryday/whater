@@ -46,5 +46,18 @@ async function render(data) {
         }@4x.png" class="app__img" alt="" />
         <p class="app__status">${data.weather[0].description}</p>
         `;
-  console.log(data);
+        const btnCurPos = document.querySelector(".app__btn")
+
+        btnCurPos.addEventListener("click",()=> navigator.geolocation.getCurrentPosition(navigatorSuccsess, navigatorError ))
+}
+
+const geo = navigator.geolocation.getCurrentPosition(navigatorSuccsess, navigatorError )
+
+async function navigatorSuccsess(geo){
+  const querry = `lat=${geo.coords.latitude}&lon=${geo.coords.longitude}`;
+  fetchData(BASE_URL, querry)
+}
+
+function navigatorError(){
+  console.log("error");
 }

@@ -80,6 +80,10 @@ input::placeholder {
   line-height: 33px;
   font-size: 22px;
 }
+.app__btn:active{
+  border: black;
+  box-shadow: none;
+}
 .app__current {
   margin-right: 10px;
 }
